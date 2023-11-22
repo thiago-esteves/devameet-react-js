@@ -4,7 +4,7 @@ import loginIcon from '../assets/images/mail.svg';
 import passWordIcon from '../assets/images/key.svg';
 import { PublicInput } from '../components/general/PublicInput';
 import { LoginServices } from '../services/LoginServices';
-import {Link} from 'react-router-dom';
+import {Link, useSearchParams} from 'react-router-dom';
 
 
 const loginServices = new LoginServices();
@@ -16,6 +16,9 @@ export const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const [searchParams] = useSearchParams();
+    const success = searchParams.get('success');
 
     const doLogin = async () => {
         try{
@@ -47,6 +50,8 @@ export const Login = () => {
             <img src={logo} alt='Logo devameet' className='logo' />
             <form>
                 {error && <p className='error'>{error}</p>}
+                {success && <p className='success'>Cadastro efetuado com sucesso, faça seu login.</p>}
+                
                 <PublicInput icon={loginIcon} alt='Email' name='email'
                     type='text' modelValue={login} setValue={setLogin} />
 

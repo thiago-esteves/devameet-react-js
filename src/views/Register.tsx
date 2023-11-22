@@ -24,9 +24,8 @@ export const Register = () => {
     const navigate = useNavigate();
 
 
-    const  doRegister = async () => {
-        
-    
+    const doRegister = async () => {
+
         try {
             setError('');
 
@@ -60,36 +59,33 @@ export const Register = () => {
                 return setError(e?.response?.data?.message);
             }
             return setError('Erro ao efetuar login, tente novamente');
-
         }
-
-        return (
-
-            <div className="container-public register">
-                <img src={logo} alt='logo Devameet' className="logo" />
-                <form>
-                    <AvatarInput image={image} setImage={setImage} />
-                    {error && <p className='error'>{error}</p>}
-
-
-                    <PublicInput icon={userIcon} name='Nome' alt='Nome' modelValue={name} type='text' setValue={setName} />
-                    <PublicInput icon={emailIcon} name='Email' alt='Email' modelValue={email} type='text' setValue={setEmail} />
-                    <PublicInput icon={passwordIcon} name='Senha' alt='Senha' modelValue={password} type='password' setValue={setPassword} />
-                    <PublicInput icon={passwordIcon} name='Confirme a senha' alt='Confirme a senha' modelValue={confirm} type='password' setValue={setConfirm} />
-
-                    <button type ='button' onClick={()=> doRegister()}disabled={loading}>
-                        {loading? '...Carregando' : 'Cadastrar'}</button>
-
-                    <div className='link'></div>
-                    <p>Não possuii uma conta?</p>
-                    <Link to='/'>Faça seu cadastro agora!</Link>
-
-
-
-                </form>
-            </div>
-        );
 
     }
 
+    return (
+
+        <div className="container-public register">
+            <img src={logo} alt='logo Devameet' className="logo" />
+            <form>
+                <AvatarInput image={image} setImage={setImage} />
+                {error && <p className='error'>{error}</p>}
+
+
+                <PublicInput icon={userIcon} name='Nome' alt='Nome' modelValue={name} type='text' setValue={setName} />
+                <PublicInput icon={emailIcon} name='Email' alt='Email' modelValue={email} type='text' setValue={setEmail} />
+                <PublicInput icon={passwordIcon} name='Senha' alt='Senha' modelValue={password} type='password' setValue={setPassword} />
+                <PublicInput icon={passwordIcon} name='Confirme a senha' alt='Confirme a senha' modelValue={confirm} type='password' setValue={setConfirm} />
+
+                <button type='button' disabled={loading} onClick={doRegister} >
+                    {loading ? '...Carregando' : 'Cadastrar'}</button>
+
+                <div className='link'>
+                    <p>Não possuii uma conta?</p>
+                    <Link to='/'>Faça seu cadastro agora!</Link>
+
+                </div>
+            </form>
+        </div>
+    )
 }

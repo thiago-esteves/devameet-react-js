@@ -8,6 +8,5 @@ import './assets/styles/global.scss';
 ReactDOM.createRoot(document.getElementById('root')as HTMLAnchorElement).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-  
-  </React.StrictMode>,
+    </React.StrictMode>,
 )
