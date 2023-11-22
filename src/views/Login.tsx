@@ -4,6 +4,7 @@ import loginIcon from '../assets/images/mail.svg';
 import passWordIcon from '../assets/images/key.svg';
 import { PublicInput } from '../components/general/PublicInput';
 import { LoginServices } from '../services/LoginServices';
+import {Link} from 'react-router-dom';
 
 
 const loginServices = new LoginServices();
@@ -56,7 +57,7 @@ export const Login = () => {
                 <button type='button' onClick={doLogin} disabled={loading}>{loading ?'...Carregando':'Login'}</button>
                 <div className='link'>
                     <p >Não possuii uma conta?</p>
-                    <a>Faça seu cadastro agora!</a>
+                    <Link to='/register'>Faça seu cadastro agora!</Link>
                 </div>
 
             </form>

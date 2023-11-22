@@ -1,7 +1,7 @@
-import { HttpAiServices } from "./HttpApiServices";
+import { HttpApiServices} from "./HttpApiServices";
 
 
-export class LoginServices extends HttpAiServices {
+export class LoginServices extends HttpApiServices {
     async login(body: any) {
         const { data } = await this.post('/auth/login', body);
 

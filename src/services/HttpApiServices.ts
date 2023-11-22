@@ -1,6 +1,6 @@
 import axios, { type AxiosInstance } from 'axios';
 
-export class HttpAiServices {
+export class HttpApiServices {
     axios: AxiosInstance;
 
     constructor() {
